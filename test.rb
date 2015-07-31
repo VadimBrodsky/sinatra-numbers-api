@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'test'
 require 'minitest/autorun'
 require 'rack/test'
 require_relative 'numbers.rb'
+require_relative 'app.rb'
 
 include Rack::Test::Methods
 
@@ -25,7 +26,7 @@ describe 'Numbers API' do
 
   it 'should return json data' do
     get '/8'
-    last_response.headers['Content-Type'].must_equal 'application/json;charset=utf-8'
+    last_response.headers['Content-Type'].must_equal 'application/json'
   end
 
   it 'should return the correct number info' do
